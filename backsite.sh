@@ -185,8 +185,8 @@ fi
 
 chmod o-r $ARCHIVE_FILE.gz
 
-echo Uploading the archive to the FTP server...
+#echo Uploading the archive to the FTP server...
 
-$SCRIPT_DIR/fup.sh $ARCHIVE_FTP_FILE.gz $SITENAME
+#$SCRIPT_DIR/fup.sh $ARCHIVE_FTP_FILE.gz $SITENAME
 
 echo Done.
