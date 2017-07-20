@@ -1,0 +1,3 @@
+#system summary
+inxi -F
+
