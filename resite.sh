@@ -78,7 +78,7 @@ fi
 
 cd $SITENAME
 
-sudo tar -xvzf $ARCHIVE_FILE www > $LISTING_FILE
+tar -xvzf $ARCHIVE_FILE www > $LISTING_FILE
 
 if [ $? -ne 0 ]; then
 	echo "exiting the script."

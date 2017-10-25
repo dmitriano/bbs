@@ -26,7 +26,7 @@ fi
 
 echo removing files: /home/$SITENAME/www /home/$SITENAME/apache.conf ...
 
-sudo rm -r /home/$SITENAME/www
+rm -rf /home/$SITENAME/www
 
 if [ $? -ne 0 ]; then
 	echo "exiting the script."
