@@ -1,2 +1,2 @@
-echo $SSH_CONNECTION | awk '{ print $1}'
+echo $SSH_CONNECTION | awk '{ print $3}'
 
