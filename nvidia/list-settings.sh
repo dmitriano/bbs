@@ -1,0 +1,2 @@
+nvidia-settings -e all
+
