@@ -1,2 +1,2 @@
-tail -n 100 /var/log/mail.log
+sudo tail -n 500 /var/log/mail.log
 
