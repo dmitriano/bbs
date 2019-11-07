@@ -3,13 +3,9 @@
 SCRIPT_SOURCE="${BASH_SOURCE[0]}"
 SCRIPT_DIR="$( dirname "$SCRIPT_SOURCE" )"
 
-#read -p "enter the site name>" -e SITENAME
+read -p "enter the site name>" -e SITENAME
 
-SITENAME=$(id | sed -e "s/^uid=[0-9]*(\([a-zA-Z0-9]*\)).*$/\1/")
-
-#echo $SITENAME
-
-#exit 0
+#SITENAME=$(id | sed -e "s/^uid=[0-9]*(\([a-zA-Z0-9]*\)).*$/\1/")
 
 MDB=$SITENAME
 MUSER=$SITENAME
@@ -21,6 +17,9 @@ DBDUMP=dbdump.sql
 
 JOOMLA_CONFIGFILE=/home/$SITENAME/www/configuration.php
 WORDPRESS_CONFIGFILE=/home/$SITENAME/www/wp-config.php
+
+#echo $WORDPRESS_CONFIGFILE
+#exit 0
 
 if [ -f $JOOMLA_CONFIGFILE ]; then
 
