@@ -87,7 +87,7 @@ read -p "enter the archive comment>" -e ACOMMENT
 
 echo Dumping the database...
 
-$MYSQLDUMP -u $MUSER -h $MHOST -p$MPASS $MDB | sed -e 's/DEFINER=[^*]*\*/\*/' > $DBDUMP
+$MYSQLDUMP -u $MUSER -h $MHOST -p$MPASS $MDB --no-tablespaces | sed -e 's/DEFINER=[^*]*\*/\*/' > $DBDUMP
 
 if [ $? -ne 0 ]; then
 	echo "exiting the script."
