@@ -40,7 +40,7 @@ echo Creating database $MDB and user $MUSER@localhost...
 $MYSQL -u root -h $MHOST -p$MROOTPASS << EOFMYSQL
 CREATE DATABASE $MDB DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 CREATE USER $MUSER@localhost IDENTIFIED BY '$MPASS';
-GRANT USAGE ON *.* TO  $MUSER@localhost IDENTIFIED BY '$MPASS' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
+GRANT USAGE ON *.* TO  $MUSER@localhost;
 GRANT ALL PRIVILEGES ON $MDB.* TO $MUSER@localhost;
 EOFMYSQL
 
@@ -78,7 +78,7 @@ fi
 
 cd $SITENAME
 
-tar -xvzf $ARCHIVE_FILE www > $LISTING_FILE
+tar -xvzf $ARCHIVE_FILE www --no-same-owner > $LISTING_FILE
 
 if [ $? -ne 0 ]; then
 	echo "exiting the script."
