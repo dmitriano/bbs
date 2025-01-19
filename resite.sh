@@ -1,5 +1,10 @@
 #!/bin/bash
-### MySQL Server Login Info ###
+
+### Options ###
+# export MROOTPASS=****
+# export CREATE_REMOTE_USER=1
+# export MYSQL8_COMPAT=1
+
 
 ARCHIVE_FILE=$(pwd)/$1
 
