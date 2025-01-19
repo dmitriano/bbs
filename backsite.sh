@@ -5,7 +5,11 @@ SCRIPT_DIR="$( dirname "$SCRIPT_SOURCE" )"
 
 read -p "enter the site name>" -e SITENAME
 
-#SITENAME=$(id | sed -e "s/^uid=[0-9]*(\([a-zA-Z0-9]*\)).*$/\1/")
+if [ -z "${SITENAME}" ]; then
+
+        SITENAME=$(id | sed -e "s/^uid=[0-9]*(\([a-zA-Z0-9]*\)).*$/\1/")
+
+fi
 
 MDB=$SITENAME
 MUSER=$SITENAME

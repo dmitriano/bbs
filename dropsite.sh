@@ -10,10 +10,11 @@ MHOST="localhost"
 MYSQL="$(which mysql)"
 
 echo
-echo Deleting $MUSER@localhost...
+echo Deleting user $MUSER and database $MDB...
 
 $MYSQL -u root -h $MHOST -p$MROOTPASS << EOFMYSQL
-DROP USER $MUSER@$MHOST;
+DROP USER IF EXISTS $MUSER@localhost;
+DROP USER IF EXISTS $MUSER@'%';
 DROP DATABASE IF EXISTS $MDB;
 EOFMYSQL
 
@@ -34,4 +35,3 @@ if [ $? -ne 0 ]; then
 else
 	echo Site $SITENAME dropped successfully.
 fi
-
