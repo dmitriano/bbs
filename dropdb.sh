@@ -10,10 +10,14 @@ echo
 
 MDB=$SITENAME
 MUSER=$SITENAME
-MHOST=localhost
+
+if [ -z "$MHOST" ]; then
+  MHOST="localhost"
+  echo "MHOST has been set to $MHOST"
+fi
+
 MDB=$SITENAME
 MUSER=$SITENAME
-
 
 echo
 echo Removing database $MDB and user $MUSER@$MHOST...

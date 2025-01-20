@@ -13,7 +13,11 @@ fi
 
 MDB=$SITENAME
 MUSER=$SITENAME
-MHOST="localhost"
+
+if [ -z "$MHOST" ]; then
+  MHOST="localhost"
+  echo "MHOST has been set to $MHOST"
+fi
 
 DBDUMP=dbdump.sql
 
@@ -89,7 +93,7 @@ LISTING_FILE=$(pwd)/$SITENAME-list.txt
 
 read -p "enter the archive comment>" -e ACOMMENT
 
-echo Dumping the database...
+echo Dumping the database $MDB...
 
 $MYSQLDUMP -u $MUSER -h $MHOST -p$MPASS $MDB --no-tablespaces | sed -e 's/DEFINER=[^*]*\*/\*/' > $DBDUMP
 

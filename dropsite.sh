@@ -1,4 +1,5 @@
 #!/bin/bash
+
 ### MySQL Server Login Info ###
 read -p "enter the site name>" -e SITENAME
 MDB=$SITENAME
@@ -6,7 +7,12 @@ MUSER=$SITENAME
 if [ -z "$MROOTPASS" ]; then
     read -s -p "enter the Root database password>" -e MROOTPASS
 fi
-MHOST="localhost"
+
+if [ -z "$MHOST" ]; then
+  MHOST="localhost"
+  echo "MHOST has been set to $MHOST"
+fi
+
 MYSQL="$(which mysql)"
 
 echo
