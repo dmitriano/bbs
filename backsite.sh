@@ -109,7 +109,8 @@ echo Creating tar archive...
 cd /home/$SITENAME
 
 #/etc/apache2/sites-available/$SITENAME $SHARED_WWW - is not accessible anymore
-tar cvf $ARCHIVE_FILE www > $LISTING_FILE
+# tar cvf $ARCHIVE_FILE www > $LISTING_FILE
+tar cf $ARCHIVE_FILE www
 
 if [ $? -ne 0 ]; then
 	rm $DBDUMP
