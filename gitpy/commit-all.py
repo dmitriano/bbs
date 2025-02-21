@@ -1,8 +1,4 @@
 import git
-from git import Repo
-import os
-from pathlib import Path
-import colorama
 from colorama import Fore, Style
 
 def get_repo_name_from_url(url: str) -> str:
@@ -39,7 +35,7 @@ def append_changes(repo):
     if change:
         repo_changes.append(change)
 
-root_repo = Repo()
+root_repo = git.Repo()
 
 for submodule in root_repo.submodules:
     repo = submodule.module()
