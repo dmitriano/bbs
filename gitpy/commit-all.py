@@ -47,6 +47,10 @@ def is_pushed(push_info: git.remote.PushInfo) -> bool:
     valid_flags = {push_info.FAST_FORWARD, push_info.NEW_HEAD}  # UP_TO_DATE flag is intentionally skipped.
     return push_info.flags in valid_flags  # This check can require the use of & instead.
 
+def print_files(files, color):
+    for file in files:
+        print(f"\t{color}{file}{Style.RESET_ALL}")
+
 if repo_changes:
 
     for change in repo_changes:
@@ -56,10 +60,10 @@ if repo_changes:
         print(f"{Fore.GREEN}{change.name}{Style.RESET_ALL} on branch {Fore.YELLOW}{repo.active_branch.name}{Style.RESET_ALL}:")
 
         if change.diff:
-            print(f"{Fore.RED}{change.diff}{Style.RESET_ALL}")
+            print_files(change.diff.splitlines(), Fore.RED)
 
         if change.untracked_files:
-            print(f"\t{Fore.RED}{change.untracked_files}{Style.RESET_ALL}")
+            print_files(change.untracked_files, Fore.RED)
 
     commit_message = input("Commit message: ")
 
