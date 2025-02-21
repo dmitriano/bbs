@@ -68,10 +68,9 @@ if repo_changes:
 
             repo = change.repo
             repo.git.add(all=True)
-            out = repo.git.commit('-m', commit_message)
-            print(out)
+            repo.git.commit('-m', commit_message)
             origin = repo.remote('origin')
-            res = origin.push()
+            out = origin.push()
             print(out)
 
     else:
