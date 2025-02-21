@@ -1,3 +1,4 @@
+import git
 from git import Repo
 import os
 from pathlib import Path
@@ -46,6 +47,10 @@ for submodule in root_repo.submodules:
 
 append_changes(root_repo)
 
+def is_pushed(push_info: git.remote.PushInfo) -> bool:
+    valid_flags = {push_info.FAST_FORWARD, push_info.NEW_HEAD}  # UP_TO_DATE flag is intentionally skipped.
+    return push_info.flags in valid_flags  # This check can require the use of & instead.
+
 if repo_changes:
 
     for change in repo_changes:
@@ -70,8 +75,12 @@ if repo_changes:
             repo.git.add(all=True)
             repo.git.commit('-m', commit_message)
             origin = repo.remote('origin')
-            out = origin.push()
-            print(out)
+            info = origin.push()
+            if is_pushed(info):
+                print("Pushed.")
+            else:
+                print("The changes has not been pushed.")
+                break
 
     else:
 
