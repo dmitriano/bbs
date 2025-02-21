@@ -75,7 +75,7 @@ if repo_changes:
             repo.git.add(all=True)
             repo.git.commit('-m', commit_message)
             origin = repo.remote('origin')
-            info = origin.push()
+            info = origin.push()[0]
             if is_pushed(info):
                 print("Pushed.")
             else:
