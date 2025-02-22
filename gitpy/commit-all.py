@@ -1,6 +1,5 @@
 import git
 from colorama import Fore, Style
-from pprint import pprint
 
 def get_repo_name_from_url(url: str) -> str:
     last_slash_index = url.rfind("/")
@@ -77,7 +76,6 @@ if repo_changes:
             repo.git.commit('-m', commit_message)
             origin = repo.remote('origin')
             info = origin.push()[0]
-            pprint(info)
             if is_pushed(info):
                 print("Pushed.")
             else:
