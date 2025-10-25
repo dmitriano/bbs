@@ -1,0 +1,13 @@
+Epoch 1 loss=0
+Epoch 2 loss=0
+Epoch 3 loss=0
+Epoch 4 loss=0
+Epoch 5 loss=0
+Epoch 6 loss=0
+Epoch 7 loss=0
+Epoch 8 loss=0
+Epoch 9 loss=0
+Epoch 10 loss=0
+
+Signals:
+Total PnL=0%  winrate=0%

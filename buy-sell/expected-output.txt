@@ -1,0 +1,9 @@
+Epoch 1 loss=0.6891
+Epoch 2 loss=0.6825
+...
+Epoch 10 loss=0.6593
+
+Signals:
+BUY @835 (0.529800)  SELL @852 (0.532300)  ret=0.47%  buy|p_down
+BUY @900 (0.531000)  SELL @920 (0.533900)  ret=0.55%  buy|tp
+Total PnL=1.02%  winrate=100%
