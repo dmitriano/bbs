@@ -1,2 +1,3 @@
-echo $SSH_CONNECTION | awk '{ print $3}'
+curl -s https://api.ipify.org
+echo
 
